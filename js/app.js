@@ -141,7 +141,12 @@ const showPosts = (posts) => {
     });
 };
 
+const quizSection = () => {
+    document.getElementById('quiz-section').style.display = 'none';
+}
+
 const displayLikedPosts = () => {
+    quizSection();
     const likedPosts = getLikedPosts();
     const liked = document.getElementById("liked");
     liked.innerHTML = '';
@@ -152,6 +157,7 @@ const displayLikedPosts = () => {
 };
 
 const displayReportedPosts = () => {
+    quizSection();
     const reported = document.getElementById("reported");
     reported.innerHTML = '';
     const reportedPosts = getReportedPosts();
