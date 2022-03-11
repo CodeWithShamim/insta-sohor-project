@@ -35,6 +35,7 @@ const switchTab = (id) => {
         document.getElementById("posts").style.display = "grid";
         document.getElementById("liked").style.display = "none";
         document.getElementById("reported").style.display = "none";
+        quizSection('block');
     } else if (id === "liked") {
         document.getElementById("liked").style.display = "block";
         document.getElementById("posts").style.display = "none";
@@ -141,12 +142,12 @@ const showPosts = (posts) => {
     });
 };
 
-const quizSection = () => {
-    document.getElementById('quiz-section').style.display = 'none';
+const quizSection = (item) => {
+    document.getElementById('quiz-section').style.display = item;
 }
 
 const displayLikedPosts = () => {
-    quizSection();
+    quizSection('none');
     const likedPosts = getLikedPosts();
     const liked = document.getElementById("liked");
     liked.innerHTML = '';
@@ -157,7 +158,7 @@ const displayLikedPosts = () => {
 };
 
 const displayReportedPosts = () => {
-    quizSection();
+    quizSection('none');
     const reported = document.getElementById("reported");
     reported.innerHTML = '';
     const reportedPosts = getReportedPosts();
